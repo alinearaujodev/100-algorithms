@@ -1,0 +1,20 @@
+algoritmo consumo_medio;
+// Síntese
+//  Objetivo: Escreva um algoritmo que receba a distância percorrida por umautomóvel (em Km) e a quantidade de litros consumida (em litros) emostre o consumo médio do veículo no percurso.
+//  Entrada : Distância percorrida (Km) e quantidade de litros (litros)
+//  Saída   : Mostrar o consumo médio do veiculo
+
+
+principal
+	// Declarações
+	real km, litros, consumo_medio;
+	// Instruções
+	escreva("Distância Percorrida (Km): ");
+	leia(km);
+	escreva("Litros: ");
+	leia(litros);
+
+	consumo_medio = km/litros;
+
+	escreva("Consumo médio: " + consumo_medio);
+fimPrincipal

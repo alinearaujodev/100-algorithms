@@ -1,0 +1,20 @@
+algoritmo imc;
+// Síntese
+//  Objetivo: Escreva um algoritmo que calcule o índice de massa corporal (IMC)de uma pessoa.
+//  Entrada : Peso e altura da pessoa
+//  Saída   : mostrar o imc
+
+
+principal
+	// Declarações
+	real peso, altura, imc;
+	// Instruções
+	escreva("Altura: ");
+	leia(altura);
+	escreva("Peso: ");
+	leia(peso);
+
+	imc = peso/(altura*altura);
+
+	escreva("IMC: " + imc);
+fimPrincipal

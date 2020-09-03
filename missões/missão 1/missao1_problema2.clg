@@ -1,0 +1,20 @@
+algoritmo salario;
+// Síntese
+//  Objetivo: Faça um programa que solicite o numero de dias trabalhados pelo encanador e imprima a quantia líquida que deverá ser paga, sabendo-se que são descontados 8% para imposto de renda.
+//  Entrada : dias trabalhados
+//  Saída   : mostrar o slario liquido com desconto
+
+
+principal
+	// Declarações
+	inteiro dias;
+	real desconto, sal_liquido;
+	// Instruções
+	escreva("Dias Trabalhados: ");
+	leia(dias);
+
+	sal_liquido = (dias*30);
+	desconto = (8*sal_liquido)/100;
+
+	escreva("Salário Liquido: " + (sal_liquido-desconto));
+fimPrincipal

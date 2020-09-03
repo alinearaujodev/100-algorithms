@@ -1,0 +1,20 @@
+algoritmo num_top;
+// Síntese
+//  Objetivo: Leia um numero inteiro e imprima a soma do sucessor de seu triplo com o antecessor de seu dobro.
+//  Entrada : um numero inteiro
+//  Saída   : mostrar a soma do sucessor de seu triplo com o antecessor de seu dobro
+
+
+principal
+	// Declarações
+	inteiro num, triplo, dobro, soma;
+	// Instruções
+	escreva("Número: ");
+	leia(num);
+
+	triplo = (num*3);
+	dobro = (num*2);
+	soma = (triplo+1)+(dobro-1);
+
+	escreva("Soma: " + soma);
+fimPrincipal

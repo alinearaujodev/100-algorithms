@@ -1,0 +1,20 @@
+algoritmo produto;
+// Síntese
+//  Objetivo: Escreva um algoritmo que receba dois números inteiros e mostre o produto
+//  Entrada : dois números inteiros
+//  Saída   : Mostrar o produto
+
+
+principal
+	// Declarações
+	inteiro num1, num2, produto;
+	// Instruções
+	escreva ("Digite o primeiro número: ");
+	leia(num1);
+	escreva ("Digite o segundo número: ");
+	leia(num2);
+
+	produto = num1*num2;
+
+	escreva("O produto é: " + produto);
+fimPrincipal

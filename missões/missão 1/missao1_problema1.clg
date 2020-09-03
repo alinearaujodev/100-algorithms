@@ -1,0 +1,22 @@
+algoritmo divisor_premio;
+// Síntese
+//  Objetivo: Dado uma quantia calcular a divisão do premio
+//  Entrada : valor do premio
+//  Saída   : mostrar a quantia de cada ganhador receberá
+
+
+principal
+	// Declarações
+	real premio, ganhador1, ganhador2, ganhador3;
+	// Instruções
+	escreva ("Valor do prêmio: ");
+	leia(premio);
+
+	ganhador1 = (46*10)/100;
+	ganhador2 = (32*10)/100;
+	ganhador3 = (22*10)/100;
+	
+	escreval("1º Ganhador: " + premio*ganhador1);
+	escreval("2º Ganhador: " + premio*ganhador2);
+	escreval("3º Ganhador: " + premio*ganhador3);
+fimPrincipal

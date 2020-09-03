@@ -1,4 +1,4 @@
-# apc_2020.1
+# apc_unb_2020.1
 
-apc_2020.1 é uma diciplina que fiz no primeiro semestre em engenharia de software. aqui você encontra todos os primeiros códigos que fiz na linguagem de programação C.
+Algoritmos e Programação de Computadores (APC) é uma diciplina que fiz no primeiro semestre em Engenharia de Software na Universidade de Brasília - UnB. Aqui você encontra todos os códigos que fiz na programaga de lógica de programação, Calango e com linguagem de programação C.
 

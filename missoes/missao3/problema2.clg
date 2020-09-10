@@ -1,0 +1,24 @@
+algoritmo media;
+// Síntese
+//  Objetivo: Faça um algoritmo que leia 10 números quaisquer e mostre a média desses números.
+//  Entrada : 10 numeros quaisquer
+//  Saída   : mostrar a média dos numeros
+
+
+principal
+	// Declarações
+	inteiro cont;
+	real media, num, soma;
+	// Instruções
+	media = 0;
+	soma = 0;
+	para (cont de 1 ate 10 passo 1) faca
+		escreva("Digite " + cont + "º número: ");
+		leia(num);
+		soma = soma + num;
+	fimPara
+
+	media = soma/10;
+
+	escreva("Média: " + media);
+fimPrincipal

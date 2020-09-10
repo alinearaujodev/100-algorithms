@@ -1,0 +1,27 @@
+algoritmo primo;
+// Síntese
+//  Objetivo: Faça um algoritmo que receba um número inteiro maior que 1 e informe se ele é primo ou não.
+//  Entrada : numero maior que 1
+//  Saída   : informar se o numero é um numero primo ou não
+
+
+principal
+	// Declarações
+	inteiro num, cont, val;
+	// Instruções
+	val = 0;
+	escreva("Digite um numero: ");
+	leia(num);
+
+	para (cont de 1 ate num passo 1) faca
+		se (num % cont == 0) entao
+			val = val + 1;
+		fimSe
+	fimPara
+
+	se (val == 2) entao
+		escreva(num + " é um numero primo");
+	senao
+		escreva(num + " não é um numero primo");
+	fimSe
+fimPrincipal

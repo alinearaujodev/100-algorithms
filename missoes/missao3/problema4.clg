@@ -1,0 +1,27 @@
+algoritmo media3;
+// Síntese
+//  Objetivo: Faça um algoritmo que leia uma sequência de números quaisquer. A entrada de dados termina quando for digitado o valor zero. Em seguida, calcule e mostre o valor da média desses números.
+//  Entrada : leitura de numeros quaisquer
+//  Saída   : mostrar media dos numeros
+
+
+principal
+	// Declarações
+	real num, media, soma;
+	inteiro cont;
+	// Instruções
+	cont = 0;
+	soma = 0;
+	faca
+		escreva("Digite um número: ");
+		leia(num);
+		soma = soma + num;
+		cont = cont + 1;
+	enquanto (num != 0);
+
+	cont = cont - 1;
+	media = soma/cont;
+
+	escreva("Media: " + media);
+	
+fimPrincipal

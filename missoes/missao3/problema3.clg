@@ -1,0 +1,27 @@
+algoritmo media2;
+// Síntese
+//  Objetivo: Faça um algoritmo que leia um número inteiro N. Em seguida, leia N números quaisquer e mostre a média desses números.
+//  Entrada : um numero n para contador e n numeros 
+//  Saída   : mostrar medias de n numeros
+
+
+principal
+	// Declarações
+	inteiro n, cont;
+	real soma, media, num;
+	// Instruções
+	soma = 0;
+	escreva("Numero de valores: ");
+	leia(n);
+
+	para (cont de 1 ate n passo 1) faca 
+		escreva("Digite o " + cont + "º valor: ");
+		leia(num);
+
+		soma = soma + num;
+	fimPara
+
+	media = soma/n;
+
+	escreva("Média: " + media);
+fimPrincipal

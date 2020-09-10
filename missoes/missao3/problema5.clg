@@ -1,0 +1,21 @@
+algoritmo fatorial;
+// Síntese
+//  Objetivo: Faça um algoritmo que receba um número inteiro maior ou igual a 0 e mostre seu fatorial.
+//  Entrada : numero inteiro
+//  Saída   : mostrar o fatorial do numero inteiro
+
+
+principal
+	// Declarações
+	inteiro num, cont, fat;
+	// Instruções
+	escreva("Numero: ");
+	leia(num);
+
+	fat = 1;
+	para (cont de num ate 1 passo -1) faca
+		fat = fat * cont;
+	fimPara
+
+	escreva("Fatorial: " + fat);
+fimPrincipal

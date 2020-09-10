@@ -1,0 +1,20 @@
+algoritmo parimpar;
+// Síntese
+//  Objetivo: Faça um algoritmo que receba um número inteiro e informe se ele é par ou ímpar.
+//  Entrada : um número inteiro
+//  Saída   : mostar se ele é par ou impar 
+
+
+principal
+	// Declarações
+	inteiro num;
+	// Instruções
+	escreva("Digite um número: ");
+	leia(num);
+
+	se (num % 2 == 0) entao
+		escreva(num + " é par");
+	senao
+		escreva(num + " é impar"); 
+	fimSe
+fimPrincipal

@@ -1,0 +1,37 @@
+algoritmo calculadora;
+// Síntese
+//  Objetivo: Faça um algoritmo que represente uma calculadora capaz de realizar as operações aritméticas básicas (adição, subtração, multiplicação e divisão). O algoritmo deve receber um caracter representando a operação a ser realizada e dois operandos. A saída deve ser o resultado da operação.
+//  Entrada : receber um caracter de operação e dois numeros inteiro
+//  Saída   : mostrar o resultado da operação
+
+
+principal
+	// Declarações
+	caracter operacao;
+	inteiro num1, num2;
+	// Instruções
+	escreva("Numero 1: ");
+	leia(num1);
+	escreva("Numero 2: ");
+	leia(num2);
+	escreva("Operação: ");
+	leiaCaracter(operacao);
+
+	escolha (operacao)
+		caso '+'
+			escreva (num1 + " + " + num2 + " = " + (num1+num2));
+		interrompa;
+		caso '-'
+			escreva (num1 + " - " + num2 + " = " + (num1-num2));
+		interrompa;
+		caso '*'
+			escreva (num1 + " X " + num2 + " = " + (num1*num2));
+		interrompa;
+		caso '/'
+			escreva (num1 + " / " + num2 + " = " + (num1/num2));
+		interrompa;
+		outroCaso
+			escreva("Comando invalido !");
+		interrompa;
+	fimEscolha
+fimPrincipal

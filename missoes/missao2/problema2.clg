@@ -1,0 +1,26 @@
+algoritmo semNome;
+// Síntese
+//  Objetivo: Faça um algoritmo que receba a idade de uma pessoa e informe se ela é obrigada ou não a votar, ou então se seu voto é facultativo.
+//  Entrada : idade da pessoa
+//  Saída   : mostrar se a pessoa é aptar para votar ou não
+
+
+principal
+	// Declarações
+	inteiro idade;
+	// Instruções
+	escreva("Idade: ");
+	leia(idade);
+
+	se (idade <=15) entao
+		escreva("Você não pode votar");
+	senao
+		se ((idade >=16) e (idade <=17)) entao
+			escreva("Seu voto é facultativo");
+		senao
+			se (idade >=18) entao
+				escreva("Seu voto é obrigatório");
+			fimSe
+		fimSe
+	fimSe
+fimPrincipal

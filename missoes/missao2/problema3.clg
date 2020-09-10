@@ -1,0 +1,28 @@
+algoritmo caracterespecial;
+// Síntese
+//  Objetivo: Faça um algoritmo que receba um caracter e indique se ele é uma letra minúscula, uma letra maiúscula, um número. Caso não seja nenhuma das opções anteriores, informe que ele é um símbolo.
+//  Entrada : um caracter 
+//  Saída   : informar se é uma letra minuscula, maiuscula, um numero ou um simbolo
+
+
+principal
+	// Declarações
+	caracter x;
+	// Instruções
+	escreva("Digite um caracter: ");
+	leiaCaracter(x);
+
+	se ((x >= 'A' ) e (x <= 'Z')) entao
+		escreva("Letra Maiuscula");
+	senao
+		se ((x >= 'a') e (x <= 'z')) entao
+			escreva("Letra Minuscula");
+		senao
+			se ((x >= '0') e (x <= '9')) entao
+				escreva("Número");
+			senao
+				escreva("Simbolo");
+			fimSe
+		fimSe
+	fimSe
+fimPrincipal

@@ -1,0 +1,87 @@
+algoritmo missao2;
+// Síntese
+//  Objetivo:  Faça um programa que possua um menu de opções para o usuário. Este menu deverá conter as seguintes opções:
+// 					1 - Informacoes 
+// 					2 - Calcular IMC
+//					3 - Par ou Impar 
+//					4 - Multiplicação
+//					5 - Divisao
+//					6 - Sair
+//  Entrada : leitura do menu e suas respectivas funções
+//  Saída   : informar as funcionalidades de cada opção do menu 
+
+
+principal
+	// Declarações
+	inteiro opcao, num, num2;
+	real peso, altura, imc;
+	// Instruções
+	escreval("==== Menu ====");
+	escreval("1 - Informacoes ");
+	escreval("2 - Calcular IMC ");
+	escreval("3 - Par ou Impar ");
+	escreval("4 - Multiplicação ");
+	escreval("5 - Divisão ");
+	escreval("6 - Sair ");
+	escreva("Digite a opção desejada: ");
+	leia(opcao);
+		
+	escolha (opcao)
+		caso 1
+			escreval("==== Informações ====");
+			escreval("Nome do Aluno: Aline de Araújo Diniz");
+			escreval("Matrícula do Aluno: 180096915");
+			escreval("Semestre do Aluno: 2019.2");
+		interrompa;
+		caso 2
+			escreval("==== IMC ====");
+			escreva("Peso: ");
+			leia(peso);
+			escreva("Altura: ");
+			leia(altura);
+
+			imc = peso / (altura * altura);
+
+			escreva("IMC: " + imc);
+		interrompa;
+		caso 3
+			escreval("==== Par ou Impar ====");
+			escreva("Digite um numero: ");
+			leia(num);
+
+			se (num % 2 == 0) entao
+				escreva(num + " é um numero par");
+			senao
+				escreva(num + " é um numero impar");
+			fimSe
+		interrompa;
+		caso 4
+			escreval("==== Multiplicação ====");
+			escreva("Digite um numero: ");
+			leia(num);
+			escreva("Digite um numero: ");
+			leia(num2);
+			escreva(num + " X " + num2 + " = " + (num*num2));
+		interrompa;
+		caso 5
+			escreval("==== Divisão ====");
+			escreva("Digite um numero: ");
+			leia(num);
+			escreva("Digite um numero: ");
+			leia(num2);
+
+			se ((num == 0 ) ou (num2 == 0 )) entao
+				escreva("Número invalido !");
+			senao
+				escreva(num + " / " + num2 + " = " + (num/num2));
+			fimSe
+		interrompa;
+		caso 6
+			escreval("==== Saindo ====");
+			escreva("Tchau!");
+		interrompa;
+		outroCaso
+			escreva("Comando invalido !");
+		interrompa;
+	fimEscolha
+fimPrincipal

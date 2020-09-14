@@ -1,0 +1,73 @@
+algoritmo missao3;
+// Síntese
+//  Objetivo: criar um programa para registro das notas finais de todos os alunos do professor (que será o usuário do seu programa)
+//  Entrada : leitura de n notas e opcao do menu
+//  Saída   : funcionalidade das opções do menu
+
+principal
+	// Declarações
+	real nota, maior, menor;
+	inteiro opcao, alunos, aprovado, reprovado;
+	// Instruções
+	alunos = 0;
+	aprovado = 0;
+	reprovado = 0;
+	maior = 0;
+	menor = 10000;
+	
+	faca
+		escreva("Digite a nota: ");
+		leia(nota);
+		alunos = alunos + 1;
+		
+		se (nota >= 5) entao
+			aprovado = aprovado + 1;
+		senao
+			reprovado = reprovado + 1;
+		fimSe
+
+		se (nota > maior) entao
+			maior = nota;
+		senao
+			se ((nota < menor) e (nota >=0)) entao
+				menor = nota;
+			fimSe
+		fimSe	
+	enquanto (nota >= 0);
+		
+	faca	
+		escreval("=== MENU ===");
+		escreval("1 - Total de alunos");
+		escreval("2 - Quantidade de Aprovados");
+		escreval("3 - Quantidade de Reprovados");
+		escreval("4 - Maior nota");
+		escreval("5 - Menor nota");
+		escreval("6 - Sair");
+		leia(opcao);
+		limpaTela();
+		
+		escolha (opcao)
+			caso 1
+				escreval("Total de alunos: " + (alunos-1));
+			interrompa;
+			caso 2
+				escreval("Quantidade de alunos aprovados: " + (aprovado));
+			interrompa;
+			caso 3
+				escreval("Quantidade de alunos reprovados: " + (reprovado-1));
+			interrompa;
+			caso 4
+				escreval("A maior nota: " + maior);
+			interrompa;
+			caso 5
+				escreval("A manor nota: " + menor);
+			interrompa;
+			caso 6 
+				escreva("Tchau!");
+			interrompa;
+			outroCaso
+				escreval("Comando Invalido! Informe uma opção válida");
+			interrompa;		
+		fimEscolha	
+	enquanto (opcao != 6);
+fimPrincipal

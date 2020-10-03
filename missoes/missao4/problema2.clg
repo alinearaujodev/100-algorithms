@@ -1,0 +1,51 @@
+algoritmo expressao;
+// Síntese
+//  Objetivo: Faça um algoritmo que receba dois números inteiros, x>=0 e y>=0 ,calcule e mostre o resultado da expressão. (x! + y!)/ (x + y)!
+//  Entrada : dois numeros inteiro maiores ou iguais a 0
+//  Saída   : mostrar o resultado da expressão
+
+principal
+	// Declarações
+	inteiro x, y;
+	real expressao;
+	// Instruções
+	escreva("X: ");
+	leia(x);
+	escreva("Y: ");
+	leia(y);
+
+	expressao = ((fatx(x)) + (faty(y)))/((fatxy(x,y)));
+	escreva("Resultado da Expressão = " + expressao);
+fimPrincipal
+
+funcao inteiro fatx (inteiro x)
+	inteiro cont, fat;
+	fat = 1;
+
+	para (cont de x ate 1 passo -1) faca
+		fat = fat * cont;
+	fimPara
+	retorna fat;
+fimFuncao
+
+funcao inteiro faty (inteiro y)
+	inteiro cont, fat;
+	fat = 1;
+
+	para (cont de y ate 1 passo -1) faca
+		fat = fat * cont;
+	fimPara
+	retorna fat;
+fimFuncao
+
+funcao inteiro fatxy (inteiro x , inteiro y)
+	inteiro cont, fat, soma;
+	
+	fat = 1;
+	soma = x + y;
+
+	para (cont de soma ate 1 passo -1) faca
+		fat = fat * cont;
+	fimPara
+	retorna fat;
+fimFuncao

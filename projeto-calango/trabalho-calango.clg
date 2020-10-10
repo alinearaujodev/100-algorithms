@@ -1,0 +1,96 @@
+algoritmo sgd;
+// Síntese
+//  Objetivo: criar um sistema de gerenciamento de uma disciplina.
+//  Entrada : opção digitada do menu
+//  Saída   : mostrar funcionalidade da opcao digitada
+
+
+principal
+	// Declarações
+	texto user;
+	inteiro opcao;
+	
+	// Instruções
+	escreval("=== SGD - Sistema de Gerenciamento de Disciplina ===");
+	escreva("Olá, qual é seu nome? ");
+	leia(user);
+	escreval("Seja Bem Vindo(a) " + user + "!");
+	faca
+		menu();
+		leia(opcao);
+		limpaTela();
+		escolha (opcao)
+			caso 1
+				cadAluno(user);
+			interrompa;
+			caso 2
+
+			interrompa;
+			caso 3
+
+			interrompa;
+			caso 4
+
+			interrompa;
+			caso 5
+
+			interrompa;
+			caso 6
+
+			interrompa;
+			caso 7
+				sair(user);
+			interrompa;
+			outroCaso
+				escreval("Você digitou um comando inválido. Por favor, escolha um comando válido");
+		fimEscolha
+	enquanto(opcao != 7);
+fimPrincipal
+
+procedimento menu ()
+	escreval("Escolha abaixo a opção desejada:");
+	escreval("1) Cadastrar Estudante");
+	escreval("2) Listar Estudantes");
+	escreval("3) Listar Aprovados");
+	escreval("4) Listar Reprovados");
+	escreval("5) Pesquisar Estudante");
+	escreval("6) Gerar Relatório da Turma");
+	escreval("7) Finalizar Programa");
+fimProcedimento
+
+procedimento cadAluno (texto usuario)
+	inteiro num, c, idade[1000];
+	texto aluno[1000], mat[1000];
+	real nota[1000];
+	c = 1;
+	escreva("Quantos alunos deseja cadastrar, " + usuario + "? ");
+	leia(num); 
+
+	para (c de 1 ate num passo 1) faca
+		escreva("Nome do " + c + "º aluno: ");
+		leia(aluno[c]);
+		
+			escreva("Matrícula de " + aluno[c] + ": ");
+			leia(mat[c]);
+			
+		faca
+			escreva("Idade de " + aluno[c] + ": ");
+			leia(idade[c]);
+			se(idade[c] < 0 ) entao
+				escreval("Erro! Idade negativa, insira uma idade positiva.");
+			fimSe
+		enquanto (idade[c] < 0 );
+		faca 
+			escreva("Nota de " + aluno[c] + ": ");
+			leia(nota[c]);
+			se((nota[c] < 0) ou (nota[c] > 10)) entao
+				escreval("Erro! Nota incorreta, insira uma nota correta.");
+			fimSe
+		enquanto((nota[c] < 0) ou (nota[c] > 10));
+		escreval("--------------------------");
+	fimPara
+fimProcedimento
+
+procedimento sair (texto usuario)
+	escreval("Obrigado por ter usado o sistema " + usuario + ". Até mais!");
+fimProcedimento

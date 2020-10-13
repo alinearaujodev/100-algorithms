@@ -4,7 +4,6 @@ algoritmo sgd;
 //  Entrada : opção digitada do menu
 //  Saída   : mostrar funcionalidade da opcao digitada
 
-
 principal
 	// Declarações
 	texto user;
@@ -59,10 +58,17 @@ procedimento menu ()
 fimProcedimento
 
 procedimento cadAluno (texto usuario)
-	inteiro num, c, idade[1000];
-	texto aluno[1000], mat[1000];
-	real nota[1000];
+	inteiro num, c, idade[1000], mediai, aux1, aux2;
+	texto aluno[1000], mat[1000], mencao[1000], maior, menor;
+	real nota[1000], median;
 	c = 1;
+	mediai = 0;
+	median = 0;
+	aux1 = 0;
+	aux2 = 1000000;
+	maior = " ";
+	menor = " ";
+	
 	escreva("Quantos alunos deseja cadastrar, " + usuario + "? ");
 	leia(num); 
 
@@ -70,12 +76,22 @@ procedimento cadAluno (texto usuario)
 		escreva("Nome do " + c + "º aluno: ");
 		leia(aluno[c]);
 		
+		faca	
 			escreva("Matrícula de " + aluno[c] + ": ");
 			leia(mat[c]);
+
+			// Conferir se matrícula tem 10 caracteres
+			se (tamanhoTexto(mat[c]) != 10) entao
+				escreval("Erro! Matrícula incorreta, insira uma matrícula correta.");
+			fimSe
+		enquanto (tamanhoTexto(mat[c]) != 10);
 			
 		faca
 			escreva("Idade de " + aluno[c] + ": ");
 			leia(idade[c]);
+			mediai = mediai + idade[c];
+
+			// Conferir se idade é positiva
 			se(idade[c] < 0 ) entao
 				escreval("Erro! Idade negativa, insira uma idade positiva.");
 			fimSe
@@ -83,12 +99,51 @@ procedimento cadAluno (texto usuario)
 		faca 
 			escreva("Nota de " + aluno[c] + ": ");
 			leia(nota[c]);
+			median = median + nota[c];
+			
+			// Melhor e Pior nota da turma
+			se (nota[c] > aux1) entao
+				maior = aluno[c];
+			senao
+				se (nota[c] < aux2) entao
+					menor = aluno[c];
+				fimSe
+			fimSe
+
+			// Conferir Menção do aluno
+			se (nota[c] == 0) entao
+				mencao[c] = "SR";
+			senao
+				se ((nota[c] >= 1) ou (nota[c] < 3)) entao
+					mencao[c] = "II";
+				senao
+					se ((nota[c] >= 3) ou (nota[c] < 5)) entao
+						mencao[c] = "MI";
+					senao
+						se ((nota[c] >= 5) ou (nota[c] < 7)) entao
+							mencao[c] = "MM";
+						senao
+							se ((nota[c] >= 7) ou (nota[c] < 9)) entao
+								mencao[c] = "MS";
+							senao
+								se ((nota[c] >= 9) ou (nota[c] <=10)) entao
+									mencao[c] = "SS";
+								fimSe
+							fimSe
+						fimSe
+					fimSe
+				fimSe
+			fimSe
+
+			// Conferir se nota está correta
 			se((nota[c] < 0) ou (nota[c] > 10)) entao
 				escreval("Erro! Nota incorreta, insira uma nota correta.");
 			fimSe
+			
 		enquanto((nota[c] < 0) ou (nota[c] > 10));
-		escreval("--------------------------");
+		limpaTela();
 	fimPara
+	escreva("MIdade: " + (mediai/num) + " Mnota: " + (median/num) + " maior " + maior + " menor " + menor);
 fimProcedimento
 
 procedimento sair (texto usuario)

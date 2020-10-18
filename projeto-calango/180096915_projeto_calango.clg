@@ -50,6 +50,7 @@ principal
 fimPrincipal
 
 procedimento menu ()
+	escreval("--------------------");
 	escreval("Escolha abaixo a opção desejada:");
 	escreval("1) Cadastrar Estudante");
 	escreval("2) Listar Estudantes");
@@ -108,8 +109,7 @@ procedimento listarAlunos (inteiro num, texto aluno[], texto mat[], real nota[])
 	escreval("--------------------");
 	para (c de 0 ate num-1 passo 1) faca	
 		escreval(aluno[c] + " - " + mat[c] + " - " + nota[c]);
-	fimPara	
-	escreval("--------------------");
+	fimPara
 fimProcedimento
 
 procedimento listarAprovados (inteiro num, texto aluno[], texto mat[], real nota[])
@@ -128,7 +128,6 @@ procedimento listarAprovados (inteiro num, texto aluno[], texto mat[], real nota
 			escreval(aluno[c] + " - " + mat[c] + " - " + nota[c]);
 		fimSe
 	fimPara
-	escreval("--------------------");
 fimProcedimento
 
 procedimento listarReprovados (inteiro num, texto aluno[], texto mat[], real nota[])
@@ -147,7 +146,6 @@ procedimento listarReprovados (inteiro num, texto aluno[], texto mat[], real not
 			escreval(aluno[c] + " - " + mat[c] + " - " + nota[c]);
 		fimSe
 	fimPara
-	escreval("--------------------");
 fimProcedimento
 
 procedimento gerarRelatorio (inteiro num, texto aluno[], real nota[], inteiro idade[])
@@ -184,7 +182,6 @@ procedimento gerarRelatorio (inteiro num, texto aluno[], real nota[], inteiro id
 	escreval("Idade Média da Turma: " + mediaIdade/num);
 	escreval("Aluno com maior nota: " + maior);
 	escreval("Aluno com menor nota: " + menor);
-	escreval("--------------------");
 fimProcedimento
 
 procedimento pesquisarAluno (texto usuario, inteiro num, texto aluno[], texto mat[], real nota[])
@@ -198,19 +195,19 @@ procedimento pesquisarAluno (texto usuario, inteiro num, texto aluno[], texto ma
 		se (nota[c] == 0) entao
 			mencao[c] = "SR";
 		senao
-			se ((nota[c] >= 1) ou (nota[c] < 3)) entao
+			se ((nota[c] >= 1) e (nota[c] < 3)) entao
 				mencao[c] = "II";
 			senao
-				se ((nota[c] >= 3) ou (nota[c] < 5)) entao
+				se ((nota[c] >= 3) e (nota[c] < 5)) entao
 					mencao[c] = "MI";
 				senao
-					se ((nota[c] >= 5) ou (nota[c] < 7)) entao
+					se ((nota[c] >= 5) e (nota[c] < 7)) entao
 						mencao[c] = "MM";
 					senao
-						se ((nota[c] >= 7) ou (nota[c] < 9)) entao
+						se ((nota[c] >= 7) e (nota[c] < 9)) entao
 							mencao[c] = "MS";
 						senao
-							se ((nota[c] >= 9) ou (nota[c] <=10)) entao
+							se ((nota[c] >= 9) e (nota[c] <=10)) entao
 								mencao[c] = "SS";
 							fimSe
 						fimSe
@@ -221,10 +218,14 @@ procedimento pesquisarAluno (texto usuario, inteiro num, texto aluno[], texto ma
 
 		se (comparaTexto(aluno[c], pesquisa) == 0) entao
 			escreval(aluno[c] + " - " + mat[c] + " - " + mencao[c]);
-		senao
-			escreva("Aluno não encontrado");
 		fimSe
 	fimPara
+	
+	se (comparaTexto(aluno[c], pesquisa) == 0) entao
+		escreva("");
+	senao
+		escreval("Aluno não encontrado");
+	fimSe
 fimProcedimento
 
 procedimento sair (texto usuario)

@@ -187,7 +187,9 @@ fimProcedimento
 procedimento pesquisarAluno (texto usuario, inteiro num, texto aluno[], texto mat[], real nota[])
 	inteiro c;
 	texto pesquisa, mencao[1000];
-	escreva(usuario + ", qual nome você deseja pesquisa: ");
+	logico achei;
+	achei = falso;
+	escreva(usuario + ", qual nome você deseja pesquisar: ");
 	leia(pesquisa);
 	
 	para (c de 0 ate num-1 passo 1)faca
@@ -215,15 +217,14 @@ procedimento pesquisarAluno (texto usuario, inteiro num, texto aluno[], texto ma
 				fimSe
 			fimSe
 		fimSe
-
+		// Mostrar aluno pesquisado
 		se (comparaTexto(aluno[c], pesquisa) == 0) entao
 			escreval(aluno[c] + " - " + mat[c] + " - " + mencao[c]);
+			achei = verdadeiro;
 		fimSe
 	fimPara
 	
-	se (comparaTexto(aluno[c], pesquisa) == 0) entao
-		escreva("");
-	senao
+	se (achei == falso) entao
 		escreval("Aluno não encontrado");
 	fimSe
 fimProcedimento

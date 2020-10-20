@@ -1,0 +1,34 @@
+algoritmo problema3;
+// Síntese
+//  Objetivo: receba a idade e o peso de um conjunto de 5 pessoas, armazenando os valores em dois vetores, um para os pesos e outro para as idades.
+//  Entrada : pesos e idades de 5 pessoas
+//  Saída   : a) a idade da pessoa que tem o maior peso; b) o peso da pessoa que tem a menor idade.
+
+
+principal
+	// Declarações
+	inteiro idade[6], c, maior, aux1;
+	real peso[6], menor, aux2;
+	aux1 = 0;
+	aux2 = 100000000;
+	// Instruções
+	para (c de 0 ate 4 passo 1) faca
+		escreva("Peso " + (c+1) + " pessoa: " );
+		leia(peso[c]);
+		escreva("idade " + (c+1) + " pessoa: " );
+		leia(idade[c]);
+
+		se (peso[c] > aux1) entao
+			aux1 = peso[c];
+			maior = idade[c];
+		fimSe
+
+		se (idade[c] < aux2) entao
+			aux2 = idade[c];
+			menor = peso[c];
+		fimSe
+	fimPara
+
+	escreval("Idade da pessoa que tem o maior peso: " + maior);
+	escreval("Peso da pessoa que tem o menor idade: " + menor);
+fimPrincipal

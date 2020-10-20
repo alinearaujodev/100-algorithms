@@ -1,0 +1,27 @@
+algoritmo quantPalavras;
+// Síntese
+//  Objetivo: uma funcao que receba como parametro um texto e retorne a quantidade de palavras. Considere que as palavras digitadas estejam separadas apenas por espacos em branco.
+//  Entrada : um texto
+//  Saída   : informar a quantidade de palavras no texto
+
+
+principal
+	// Declarações
+	texto x;
+	// Instruções
+	escreva("Digite o texto: ");
+	leia(x);
+	escreva("Quantidade de palavra(s) no texto: " + palavras(x));
+fimPrincipal
+
+funcao inteiro palavras (texto x)
+	inteiro c, i;
+	c = 0;
+
+	para (i de 0 ate tamanhoTexto(x)-1 passo 1) faca
+		se (caracterTexto(x, i) == ' ') entao
+			c = c + 1;
+		fimSe
+	fimPara
+	retorna c+1;
+fimFuncao

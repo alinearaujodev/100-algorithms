@@ -1,0 +1,33 @@
+algoritmo inversao;
+// Síntese
+//  Objetivo:  receba um numero inteiro m e uma sequencia de m numeros. Mostre os m números em ordem inversa à da leitura. Utilize um procedimento para mostrar a sequencia invertida. Se m for menor ou igual a zero, mostrar a mensagem “Quantidade invalida”
+//  Entrada : numero inteiro m maior que 0 e sequencia de m numeros 
+//  Saída   : mostrar ordem dos numeros invertida
+
+principal
+	// Declarações
+	inteiro m;
+	// Instruções
+	faca 
+		escreva("Digite um numero: ");
+		leia(m);
+		se (m <= 0 ) entao
+			escreval ("Quantidade invalida");
+		fimSe
+	enquanto (m <= 0);
+	inversao(m);
+fimPrincipal
+
+procedimento inversao (inteiro m )
+	real vetor[100000];
+	inteiro c;
+
+	para (c de 0 ate m-1 passo 1) faca
+		escreva("Numero " + (c+1) + ": ");
+		leia(vetor[c]);
+	fimPara
+
+	para ( c de m-1 ate 0 passo -1) faca
+		escreva(vetor[c] + " ");
+	fimPara
+fimProcedimento

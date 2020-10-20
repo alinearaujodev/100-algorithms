@@ -1,0 +1,30 @@
+algoritmo problema2;
+// Síntese
+//  Objetivo: receba um numero qualquer n (n <> 0) e uma sequencia de m numeros (m <> 0). Nao se sabe o valor de m, mas sabe-se que o fim da sequencia de numeros acontece quando for digitado o valor 0. Mostre quantas vezes o numero n aparece na sequencia de numeros.
+//  Entrada : numero n e sequencia de m numeros
+//  Saída   : informar quantas vezes o numero n apareceu na sequencia dos m numeros
+
+
+principal
+	// Declarações
+	inteiro n;
+	// Instruções
+	escreva("Numero: ");
+	leia(n);
+	escreva(n + " aparece " + repeticao(n) + " vez(es)");
+fimPrincipal
+
+funcao inteiro repeticao (inteiro n)
+	inteiro c, i;
+	real m;
+	c = 0;
+	i = 0;
+	faca
+		escreva("numero: ");
+		leia (m);
+		se (m == n ) entao
+			i = i + 1;
+		fimSe
+	enquanto (m != 0);
+	retorna i;
+fimFuncao

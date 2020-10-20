@@ -1,0 +1,27 @@
+algoritmo quantVogais;
+// Síntese
+//  Objetivo: uma funcao que receba como parametro um texto e retorne a quantidade de vogais que existe no texto.
+//  Entrada : um texto
+//  Saída   : informar a quantidade de vogais no texto
+
+
+principal
+	// Declarações
+	texto x;
+	// Instruções
+	escreva("Digite o texto: ");
+	leia(x);
+	escreva("Quantidade de vogais no texto: " + vogais(x));
+fimPrincipal
+
+funcao inteiro vogais (texto x)
+	inteiro c, i;
+	c = 0;
+
+	para (i de 0 ate tamanhoTexto(x)-1 passo 1) faca
+		se (((caracterTexto(x, i) == 'a') ou (caracterTexto(x, i) == 'A')) ou ((caracterTexto(x, i) == 'e') ou (caracterTexto(x, i) == 'E')) ou ((caracterTexto(x, i) == 'i') ou (caracterTexto(x, i) == 'I')) ou ((caracterTexto(x, i) == 'o') ou (caracterTexto(x, i) == 'O')) ou ((caracterTexto(x, i) == 'u') ou (caracterTexto(x, i) == 'U'))) entao
+			c = c + 1;
+		fimSe
+	fimPara
+	retorna c;
+fimFuncao

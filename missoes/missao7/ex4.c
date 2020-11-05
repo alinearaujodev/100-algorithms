@@ -24,8 +24,18 @@ int main() {
             }
         printf("-----------------\n");
         
-        if()
+         if(vendas > aux1){
+          aux1 = vendas;
+          maior = cod;
+        }
+        if (vendas < aux2){
+            aux2 = vendas;
+            menor = cod;
+        }
     }
+
+    printf("Código do melhor vendedor: %d\n", maior);
+    printf("Código do pior vendedor: %d\n", menor);
     return 0;
 }
   

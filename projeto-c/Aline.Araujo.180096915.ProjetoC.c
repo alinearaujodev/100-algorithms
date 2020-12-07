@@ -95,7 +95,7 @@ struct Associado cad_associado (struct Associado *x, int i) {
 
     printf("Nome do Associado: "); // SABER NOME DO ASSOCIADO
     getchar();
-    fgets(x[i].nome, 20, stdin);
+    scanf("%[^\n]s", x[i].nome);
     
     do {
         printf("Idade: ");
@@ -111,14 +111,21 @@ struct Associado cad_associado (struct Associado *x, int i) {
     printf("[Sim = 1] ou [Não = 0]\n");
 
     // Não validar numero diferente de 1 ou 0
+    // Natacao
     do { 
         printf("Natação: ");
         scanf("%d", &nat_num);
         if ((nat_num != 1) && (nat_num != 0)){
             printf("Número inválido! Por favor insira 1 para Sim ou 0 para Não\n");
             printf("-------------------------\n");
+        } 
+
+        if(nat_num == 1){
+            x[i].natacao = true;
         }
     }while ((nat_num != 1) && (nat_num != 0));
+
+    // Futsal
     do {
         printf("Futsal: ");
         scanf("%d", &fut_num);
@@ -126,13 +133,23 @@ struct Associado cad_associado (struct Associado *x, int i) {
             printf("Número inválido! Por favor insira 1 para Sim ou 0 para Não\n");
             printf("-------------------------\n");
         }
+
+        if(fut_num == 1){
+            x[i].futsal = true;
+        }
     } while ((fut_num != 1) && (fut_num != 0));
+
+    // Tenis
     do { 
         printf("Tênis: ");
         scanf("%d", &ten_num);
         if ((ten_num != 1) && (ten_num != 0)){
             printf("Número inválido! Por favor insira 1 para Sim ou 0 para Não\n");
             printf("-------------------------\n");
+        } 
+
+         if(ten_num == 1){
+            x[i].tenis = true;
         }
     } while ((ten_num != 1) && (ten_num != 0));
     
@@ -187,8 +204,29 @@ struct Associado cad_depedente (struct Associado *x, int j){
 
 void listarAssociado (struct Associado *x, int j){
     int i;
+    char nat[20], fut[20], ten[20];
+
     for (i=0; i<j; i++){
-        printf("%d - %s - %d - \n", i+1, x[i+1].nome, x[i+1].qtdDep);
+        
+        // Printar se faz ou não natacao
+        if (x[i+1].natacao == 1){
+            nat[20] = "Faz Natação";
+        } else {
+            nat[20] = "Não Faz Natação";
+        }
+        // Printar se faz ou não futsal
+        if (x[i+1].futsal == 1){
+            fut[20] = "Faz Futsal";
+        } else {
+            fut[20] = "Não Faz Futsal";
+        }
+        // Printar se faz ou não tenis
+        if (x[i+1].tenis == 1){
+            ten[20] = "Faz Tenis";
+        } else {
+            ten[20] = "Não Faz Tenis";
+        }
+        printf("%d - %s - %d - %s - %s - %s\n", i+1, x[i+1].nome, x[i+1].qtdDep, nat, fut, ten);
     }
 
 }

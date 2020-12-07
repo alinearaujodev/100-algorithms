@@ -5,9 +5,9 @@
 
 // ASSINATURA DE FUNCOES 
 void menu();
-struct Associado cad_associado (struct Associado x);
-struct Associado cad_depedente (struct Associado x);
-
+struct Associado cad_associado (struct Associado *x, int i);
+struct Associado cad_depedente (struct Associado *x, int j);
+void listarAssociado (struct Associado *x, int j);
 void sair();
 
 // STRUCT PARA DEPEDENTE
@@ -17,7 +17,7 @@ struct Depedente{
 };
     
 // STRUCT PARA ASSOCIADO
-struct Associado{
+typedef struct Associado{
     int id;
     char nome[20];
     int idade;
@@ -31,7 +31,11 @@ struct Associado{
 // PROGRAMA PRINCIPAL
 int main(){
     // DECLARAÇÃO DE VARIAVEIS
-    int opcao, i;
+    int opcao, i=0;
+
+    // vetor para associado
+    new_associado novo [25];
+    teste copiado [25];
 
     printf("Seja Bem Vindo(a) ao Sistema de Gerência de Clube Esportivo\n");
     do {
@@ -39,14 +43,15 @@ int main(){
         scanf("%d", &opcao);
         system("clear || cls");
         switch (opcao){
-            case 1:       
-                teste = cad_associado(new_associado);
+            case 1:    
+                i++;   
+                copiado[i] = cad_associado(novo, i);
             break;
             case 2:
-                cad_depedente(teste);
+                cad_depedente(copiado, i);
             break;
             case 3:
-
+                listarAssociado(copiado, i);
             break;
             case 4:
 
@@ -81,25 +86,25 @@ void menu(){
 }
 
 // FUNCAO CADASTRAR ASSOCIADO
-struct Associado cad_associado (struct Associado x) {
+struct Associado cad_associado (struct Associado *x, int i) {
     int nat_num, fut_num, ten_num;
 
     printf("--- Cadastrando Associado ---\n");
     printf("ID: "); // SABER ID DO ASSOCIADO
-    scanf("%d", &x.id);
+    scanf("%d", &x[i].id);
 
     printf("Nome do Associado: "); // SABER NOME DO ASSOCIADO
     getchar();
-    fgets(x.nome, 20, stdin);
+    fgets(x[i].nome, 20, stdin);
     
     do {
         printf("Idade: ");
-        scanf("%d", &x.idade);
-        if(x.idade <=0){ // NAO VALIDAR IDADE NEGATIVA
+        scanf("%d", &x[i].idade);
+        if(x[i].idade <=0){ // NAO VALIDAR IDADE NEGATIVA
             printf("-------------------------\n");
             printf("Idade não ser menor ou igual a 0, por favor insira uma idade válida.\n");
         }
-    } while (x.idade <= 0);
+    } while (x[i].idade <= 0);
 
     // Saber atividades esportivas
     printf("Qual atividade esportiva você realiza:\n");
@@ -131,53 +136,61 @@ struct Associado cad_associado (struct Associado x) {
         }
     } while ((ten_num != 1) && (ten_num != 0));
     
-    return x;
+    return x[i];
 }
 
 // FUNCAO CADASTRAR DEPEDENTE
-struct Associado cad_depedente (struct Associado x){
+struct Associado cad_depedente (struct Associado *x, int j){
     int i, id_associado;
     printf("--- Cadastrando Depedente ---\n");
     do{
         printf("ID: "); // INFORMAR ID DO ASSOCIADO
         scanf("%d", &id_associado);
-        if (id_associado != x.id){ // Não validar id diferente
+        if (id_associado != x[j].id){ // Não validar id diferente
             printf("ID não encontrado\n");
         }
-    } while (id_associado != x.id);
+    } while (id_associado != x[j].id);
     
     do { // SABER NUMERO DE DEPEDENTE
         printf("Quantos Depedentes: ");
-        scanf("%d", &x.qtdDep);
-        if (x.qtdDep > 3 || x.qtdDep < 0){
+        scanf("%d", &x[j].qtdDep);
+        if (x[j].qtdDep > 3 || x[j].qtdDep < 0){
             printf("Número inválido! Quantidade maxima de depedente é até 3\n");
         }
-    } while (x.qtdDep > 3 || x.qtdDep < 0);
+    } while (x[j].qtdDep > 3 || x[j].qtdDep < 0);
     
-    for (i=0; i<x.qtdDep; i++){
+    for (i=0; i<x[j].qtdDep; i++){
         printf("-------------------------\n");
         printf("Nome do %dº Depedente: ", i+1); // SABER NOME DO DEPEDENTE
         getchar();
-        fgets(x.dep[i].nome, 20, stdin);    
+        fgets(x[j].dep[i].nome, 20, stdin);    
         do {
             printf("Idade do %dº Depedente: ", i+1); // SABER IDADE DO DEPEDENTE
-            scanf("%d", &x.dep[i].idade);
-            if(x.dep[i].idade <=0){ // NAO VALIDAR IDADE NEGATIVA
+            scanf("%d", &x[j].dep[i].idade);
+            if(x[j].dep[i].idade <=0){ // NAO VALIDAR IDADE NEGATIVA
                 printf("-------------------------\n");
                 printf("Idade não ser menor ou igual a 0, por favor insira uma idade válida.\n");
             }
-        } while (x.dep[i].idade <= 0);    
+        } while (x[j].dep[i].idade <= 0);    
     }
 
     system("clear || cls");
     //  LISTAR DEPEDENTES
-    printf("Lista dos Depedentes do Associado ID: %d\n", x.id);
-    for (i=0; i<x.qtdDep; i++){
+    printf("Lista dos Depedentes do Associado ID: %d\n", x[j].id);
+    for (i=0; i<x[j].qtdDep; i++){
         printf("-------------------------\n");
-        printf("Nome do Depedente %d: %s", i+1, x.dep[i].nome);
-        printf("Idade do Depedente %d: %d\n", i+1, x.dep[i].idade);
+        printf("Nome do Depedente %d: %s", i+1, x[j].dep[i].nome);
+        printf("Idade do Depedente %d: %d\n", i+1, x[j].dep[i].idade);
     }
-    return x;
+    return x[j];
+}
+
+void listarAssociado (struct Associado *x, int j){
+    int i;
+    for (i=0; i<j; i++){
+        printf("%d - %s - %d - \n", i+1, x[i+1].nome, x[i+1].qtdDep);
+    }
+
 }
 
 void sair(){

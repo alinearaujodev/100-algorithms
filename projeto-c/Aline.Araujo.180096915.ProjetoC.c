@@ -9,6 +9,7 @@ struct Associado cad_associado (struct Associado *x, int i);
 struct Associado cad_depedente (struct Associado *x, int j);
 void listarAssociado (struct Associado *x, int j);
 void listarModalidade (struct Associado *x, int j);
+void pesquisarAssociado (struct Associado *x, int j);
 void sair();
 
 // STRUCT PARA DEPEDENTE
@@ -58,7 +59,7 @@ int main(){
                 listarModalidade(copiado, i);
             break;
             case 5:
-
+                pesquisarAssociado(copiado, i);
             break;
             case 6:
 
@@ -154,6 +155,8 @@ struct Associado cad_associado (struct Associado *x, int i) {
         }
     } while ((ten_num != 1) && (ten_num != 0));
     
+    // Bug listagem de associado
+    x[i].qtdDep = 0;
     return x[i];
 }
 
@@ -276,15 +279,55 @@ void listarModalidade (struct Associado *x, int j){
                 break;
             default:
                 printf("Comando inválido! Tente Novamente\n");
-                printf("Qual modalidade deseja selecionar: \n");
-                printf("1 - Natação\n");
-                printf("2 - Futsal\n");
-                printf("3 - Tenis\n");
                 break;
         }
     } while (modalidade != 1 && modalidade != 2 && modalidade != 3);
 }
 
+// funcao para pesquisar o associado
+void pesquisarAssociado (struct Associado *x, int j){
+    char nome_pesquisa[20];
+    int i, c=0;
+    float mensalidade;
+    bool achei = false;
+
+    printf("--- Pesquisando Associado ---\n");
+    printf("Nome do Associado a ser pesquisado: ");
+    getchar();
+    scanf("%[^\n]s", nome_pesquisa);
+
+    // FAZER PESQUISA
+    for (i=0; i<j; i++){
+        if (strcmp(nome_pesquisa, x[i+1].nome) == 0){
+            achei = true;
+            c=0;
+            // Contar as aulas
+            if (x[i+1].natacao == true){
+                c++;
+            }
+            if (x[i+1].futsal == true){
+                c++;
+            }
+            if (x[i+1].tenis == true){
+                c++;
+            }
+
+            // Saber valor da mensalidade
+            mensalidade = 100 + (x[i+1].qtdDep*50) + (c*30);
+
+            // Imprimir informações
+            printf("Informações de %s\n", x[i+1].nome);
+            printf("%d - %s - %d - %d - %d - R$%.2f\n", x[i+1].id, x[i+1].nome, x[i+1].idade, x[i+1].qtdDep, c, mensalidade);
+        }
+    }
+
+    // Mostrar associado não encontrado
+    if (achei == false){
+        printf("Associado não encontado!\n");
+    }
+}
+
+// funcao para sair do programa
 void sair(){
     printf("Obrigado por ter usado o sistema, até mais!\n");
 }

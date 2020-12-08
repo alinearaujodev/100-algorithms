@@ -8,6 +8,7 @@ void menu();
 struct Associado cad_associado (struct Associado *x, int i);
 struct Associado cad_depedente (struct Associado *x, int j);
 void listarAssociado (struct Associado *x, int j);
+void listarModalidade (struct Associado *x, int j);
 void sair();
 
 // STRUCT PARA DEPEDENTE
@@ -26,7 +27,7 @@ typedef struct Associado{
     bool natacao;
     bool futsal;
     bool tenis;
-}new_associado, teste;
+}new_associado, copia;
 
 // PROGRAMA PRINCIPAL
 int main(){
@@ -35,7 +36,7 @@ int main(){
 
     // vetor para associado
     new_associado novo [25];
-    teste copiado [25];
+    copia copiado [25];
 
     printf("Seja Bem Vindo(a) ao Sistema de Gerência de Clube Esportivo\n");
     do {
@@ -54,7 +55,7 @@ int main(){
                 listarAssociado(copiado, i);
             break;
             case 4:
-
+                listarModalidade(copiado, i);
             break;
             case 5:
 
@@ -202,33 +203,86 @@ struct Associado cad_depedente (struct Associado *x, int j){
     return x[j];
 }
 
+// FUNCAO PARA LISTAR ASSOCIADO
 void listarAssociado (struct Associado *x, int j){
     int i;
-    char nat[20], fut[20], ten[20];
+    char nat[20];
+    char fut [20];
+    char ten[20];
 
+    printf("--- Lista de Associados ---\n");
     for (i=0; i<j; i++){
         
         // Printar se faz ou não natacao
-        if (x[i+1].natacao == 1){
-            nat[20] = "Faz Natação";
+        if (x[i+1].natacao == true){
+            strcpy(nat, "Faz Natação");
         } else {
-            nat[20] = "Não Faz Natação";
+            strcpy(nat, "Não Faz Natação");
         }
         // Printar se faz ou não futsal
-        if (x[i+1].futsal == 1){
-            fut[20] = "Faz Futsal";
+        if (x[i+1].futsal == true){
+            strcpy(fut, "Faz Futsal");
         } else {
-            fut[20] = "Não Faz Futsal";
+            strcpy(fut, "Não Faz Futsal");
         }
         // Printar se faz ou não tenis
-        if (x[i+1].tenis == 1){
-            ten[20] = "Faz Tenis";
+        if (x[i+1].tenis == true){
+            strcpy(ten, "Faz Tenis");
         } else {
-            ten[20] = "Não Faz Tenis";
+            strcpy(ten, "Não Faz Tenis");
         }
         printf("%d - %s - %d - %s - %s - %s\n", i+1, x[i+1].nome, x[i+1].qtdDep, nat, fut, ten);
     }
+}
 
+// FUNCAO PARA LISTAR ASSOCIADOS POR MODALIDADE 
+void listarModalidade (struct Associado *x, int j){
+    int modalidade, i;
+    printf("--- Lista de Associados por modalidade ---\n");
+    do {
+        printf("Qual modalidade deseja selecionar: \n");
+        printf("1 - Natação\n");
+        printf("2 - Futsal\n");
+        printf("3 - Tenis\n");
+        scanf("%d", &modalidade);
+        system("clear || cls");
+        switch (modalidade){
+            case 1:
+                printf("--- Lista de Associados de Natação ---\n");
+                // SABER A LISTA DE ASSOCIADOS DE NATACAO
+                for (i=0; i<j; i++){
+                    if (x[i+1].natacao == true){
+                        printf("%d - %s\n", x[i+1].id, x[i+1].nome);
+                    }
+                } 
+                break;
+            case 2:
+                printf("--- Lista de Associados de Futsal ---\n");
+                // SABER A LISTA DE ASSOCIADOS DE FUTSAL
+                for (i=0; i<j; i++){
+                    if (x[i+1].futsal == true){
+                        printf("%d - %s\n", x[i+1].id, x[i+1].nome);
+                    }
+                } 
+                break;
+            case 3: 
+                printf("--- Lista de Associados de Tenis ---\n");
+                // SABER A LISTA DE ASSOCIADOS DE TENIS
+                for (i=0; i<j; i++){
+                    if (x[i+1].tenis == true){
+                        printf("%d - %s\n", x[i+1].id, x[i+1].nome);
+                    }
+                } 
+                break;
+            default:
+                printf("Comando inválido! Tente Novamente\n");
+                printf("Qual modalidade deseja selecionar: \n");
+                printf("1 - Natação\n");
+                printf("2 - Futsal\n");
+                printf("3 - Tenis\n");
+                break;
+        }
+    } while (modalidade != 1 && modalidade != 2 && modalidade != 3);
 }
 
 void sair(){

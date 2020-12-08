@@ -10,6 +10,7 @@ struct Associado cad_depedente (struct Associado *x, int j);
 void listarAssociado (struct Associado *x, int j);
 void listarModalidade (struct Associado *x, int j);
 void pesquisarAssociado (struct Associado *x, int j);
+void relatorio (struct Associado *x, int j);
 void sair();
 
 // STRUCT PARA DEPEDENTE
@@ -62,7 +63,7 @@ int main(){
                 pesquisarAssociado(copiado, i);
             break;
             case 6:
-
+                relatorio(copiado, i);
             break;
             case 7:
                 sair();
@@ -325,6 +326,92 @@ void pesquisarAssociado (struct Associado *x, int j){
     if (achei == false){
         printf("Associado não encontado!\n");
     }
+}
+
+// funcao para relatorio de associados
+void relatorio (struct Associado *x, int j){
+    int i, c, num_dep=0, num_nat=0, num_fut=0, num_ten=0, maior_aulas[25], aux=0;
+    float mensalidade, tot_mensal=0, maior=0;
+    char aux_nome[20];
+
+    printf("--- Relatorio de Associados ---\n");
+    // Numero de asscociados
+    printf("Número total de associados cadastrados: %d\n", j);
+
+    // Numero de Depedentes
+    for(i=0; i<j; i++){
+        if (x[i+1].qtdDep > 0){
+            num_dep = num_dep + x[i+1].qtdDep;
+        }
+    }
+    printf("Número total de dependentes cadastrados: %d\n", num_dep);
+
+    // Número de associados que fazem aula de Natação
+    for(i=0; i<j; i++){
+        if (x[i+1].natacao == true){
+            num_nat++;
+        }
+    }
+    printf("Número de associados que fazem aula de Natação: %d\n", num_nat);
+
+    // Número de associados que fazem aula de futsal
+    for(i=0; i<j; i++){
+        if (x[i+1].futsal == true){
+            num_fut++;
+        }
+    }
+    printf("Número de associados que fazem aula de Futsal: %d\n", num_fut);
+
+    // Número de associados que fazem aula de tenis
+    for(i=0; i<j; i++){
+        if (x[i+1].tenis == true){
+            num_ten++;
+        }
+    }
+    printf("Número de associados que fazem aula de Tenis: %d\n", num_ten);
+
+    for(i=0; i<j; i++){
+        c=0;
+        // Contar as aulas
+        if (x[i+1].natacao == true){
+            c++;
+        }
+        if (x[i+1].futsal == true){
+            c++;
+        }
+        if (x[i+1].tenis == true){
+            c++;
+        }
+        maior_aulas[i+1] = c;
+    }
+
+    // valor total de todas as mensalidades
+    for (i=0; i<j; i++){
+        mensalidade = 0;
+        mensalidade = 100 + (x[i+1].qtdDep*50) + (maior_aulas[i+1]*30);
+        tot_mensal = tot_mensal + mensalidade;
+        // Saber o maior valor de mensalidade
+        if (mensalidade > maior){
+            maior = mensalidade;
+        }
+    }
+    printf("Valor total de todas as mensalidades dos associados: %.2f\n", tot_mensal);
+
+    // Media das Mensalidades
+    printf("Valor médio das mensalidades dos associados: %.2f\n", tot_mensal/j);
+
+    // Valor mais alto de mensalidade
+    printf("Valor de mensalidade mais alto pago por um associado: %.2f\n", maior);
+
+    // Nome que quem faz mais aulas
+    printf("Nome do(s) associado(s) que fazem mais aulas:\n");
+    for (i=0; i<j; i++){
+        if (maior_aulas[i+1]> aux){
+            aux = maior_aulas[i+1];
+            strcpy(aux_nome, x[i+1].nome);
+        }
+    }
+    printf("%s\n", aux_nome);
 }
 
 // funcao para sair do programa

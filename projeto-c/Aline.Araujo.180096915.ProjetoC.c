@@ -164,47 +164,54 @@ struct Associado cad_associado (struct Associado *x, int i) {
 // FUNCAO CADASTRAR DEPEDENTE
 struct Associado cad_depedente (struct Associado *x, int j){
     int i, id_associado;
+    bool achei = false;
     printf("--- Cadastrando Depedente ---\n");
-    do{
+    do {
         printf("ID: "); // INFORMAR ID DO ASSOCIADO
         scanf("%d", &id_associado);
-        if (id_associado != x[j].id){ // Não validar id diferente
-            printf("ID não encontrado\n");
-        }
-    } while (id_associado != x[j].id);
-    
-    do { // SABER NUMERO DE DEPEDENTE
-        printf("Quantos Depedentes: ");
-        scanf("%d", &x[j].qtdDep);
-        if (x[j].qtdDep > 3 || x[j].qtdDep < 0){
-            printf("Número inválido! Quantidade maxima de depedente é até 3\n");
-        }
-    } while (x[j].qtdDep > 3 || x[j].qtdDep < 0);
-    
-    for (i=0; i<x[j].qtdDep; i++){
-        printf("-------------------------\n");
-        printf("Nome do %dº Depedente: ", i+1); // SABER NOME DO DEPEDENTE
-        getchar();
-        fgets(x[j].dep[i].nome, 20, stdin);    
-        do {
-            printf("Idade do %dº Depedente: ", i+1); // SABER IDADE DO DEPEDENTE
-            scanf("%d", &x[j].dep[i].idade);
-            if(x[j].dep[i].idade <=0){ // NAO VALIDAR IDADE NEGATIVA
-                printf("-------------------------\n");
-                printf("Idade não ser menor ou igual a 0, por favor insira uma idade válida.\n");
-            }
-        } while (x[j].dep[i].idade <= 0);    
-    }
+        for(i=0; i<j; i++){
+            if (id_associado == x[i+1].id){
+                achei = true;
+                do { // SABER NUMERO DE DEPEDENTE
+                    printf("Quantos Depedentes: ");
+                    scanf("%d", &x[i+1].qtdDep);
+                    if (x[i+1].qtdDep < 0 || x[i+1].qtdDep > 3){
+                        printf("Número inválido! Quantidade maxima de depedente é até 3\n");
+                    }
+                } while (x[i+1].qtdDep < 0 || x[i+1].qtdDep > 3);
 
-    system("clear || cls");
-    //  LISTAR DEPEDENTES
-    printf("Lista dos Depedentes do Associado ID: %d\n", x[j].id);
-    for (i=0; i<x[j].qtdDep; i++){
-        printf("-------------------------\n");
-        printf("Nome do Depedente %d: %s", i+1, x[j].dep[i].nome);
-        printf("Idade do Depedente %d: %d\n", i+1, x[j].dep[i].idade);
-    }
-    return x[j];
+                
+                for (i=0; i<x[i+1].qtdDep; i++){
+                    printf("-------------------------\n");
+                    printf("Nome do %dº Depedente: ", i+1); // SABER NOME DO DEPEDENTE
+                    getchar();
+                    fgets(x[i+1].dep[i].nome, 20, stdin);    
+                    do {
+                        printf("Idade do %dº Depedente: ", i+1); // SABER IDADE DO DEPEDENTE
+                        scanf("%d", &x[i+1].dep[i].idade);
+                        if(x[i+1].dep[i].idade <=0){ // NAO VALIDAR IDADE NEGATIVA
+                            printf("-------------------------\n");
+                            printf("Idade não ser menor ou igual a 0, por favor insira uma idade válida.\n");
+                        }
+                    } while (x[i+1].dep[i].idade <= 0);    
+                }
+
+                system("clear || cls");
+                //  LISTAR DEPEDENTES       
+                for (i=0; i<x[i+1].qtdDep; i++){
+                    printf("Lista dos Depedentes do Associado ID: %d\n", x[i+1].id);
+                    printf("-------------------------\n");
+                    printf("Nome do Depedente %d: %s", i+1, x[i+1].dep[i].nome);
+                    printf("Idade do Depedente %d: %d\n", i+1, x[i+1].dep[i].idade);
+                }
+            }
+        }
+        if (achei == false){
+            printf("ID não encontrado!\n");
+        }
+    }while (achei == false);
+    
+    return x[i+1];
 }
 
 // FUNCAO PARA LISTAR ASSOCIADO
@@ -406,7 +413,7 @@ void relatorio (struct Associado *x, int j){
     // Nome que quem faz mais aulas
     printf("Nome do(s) associado(s) que fazem mais aulas:\n");
     for (i=0; i<j; i++){
-        if (maior_aulas[i+1]> aux){
+        if (maior_aulas[i+1] > aux){
             aux = maior_aulas[i+1];
             strcpy(aux_nome, x[i+1].nome);
         }

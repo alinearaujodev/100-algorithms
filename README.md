@@ -1,10 +1,13 @@
-# Algoritmos e Programação de Computadores (APC) - UnB 
+# Algoritmos e Programação de Computadores (APC) | Universidade de Brasília - UnB 
 
-Algoritmos e Programação de Computadores (APC) é uma disciplina que fiz no primeiro semestre em Engenharia de Software na Universidade de Brasília - UnB. Aqui você encontra todos os códigos que fiz no programa de lógica de programação, Calango e com linguagem de programação C.
+Algoritmos e Programação de Computadores (APC) é uma disciplina do primeiro semestre do curso Engenharia de Software na Universidade de Brasília - UnB. Aqui você encontra todos algoritmos que fiz no programa Calango e com a linguagem de programação C.
 
-## Distribuição do conteúdo:
+## Organização do conteúdo:
 
 - Missões: Exercícios de aprendizagem
-- Projeto Calango: projeto final para conhecimento em lógica de programação no programa Calango
-- Projeto em C: projeto final para conhecimento geral da disciplina na linguagem C
+- Projeto final no Calango: sistema de gerenciamento de uma disciplina
+- Projeto final em C: sistema de gerenciamento de um clube esportivo
 
+### 📫 Vamos conversar: 
+📧 [Email](mailto:alinearaujodev@gmail.com)
+💼 [LinkedIn](https://www.linkedin.com/in/alinearaujodev)

@@ -8,7 +8,7 @@
 <img src="https://img.shields.io/github/license/alinearaujodev/apc-unb"/>
 </p>
 
-Algoritmos e Programação de Computadores (APC) é uma disciplina do primeiro semestre do curso Engenharia de Software da Universidade de Brasília - UnB. O objetivo é aprender sobre lógica de programação, na aplicação de exercícios e desenvolvimento de projetos.
+Algoritmos e Programação de Computadores (APC) é uma disciplina do primeiro semestre do curso Engenharia de Software da Universidade de Brasília - UnB. O objetivo é aprender sobre lógica de programação, com desenvolvimento de exercícios e de projetos.
 
 Aqui você encontra todos algoritmos que desenvolvir no **programa Calango** e na **linguagem de programação C**
 

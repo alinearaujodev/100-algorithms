@@ -3,8 +3,8 @@
 ![capa-apc](https://user-images.githubusercontent.com/31042530/197543928-8d4b330a-9a25-4b56-b003-2202f88390e9.png)
 
 <p align="center">
-<img src="https://img.shields.io/badge/status-conclu%C3%ADdo%20%E2%9C%85-green"/>
-<img src="https://img.shields.io/badge/t%C3%B3pico-disciplina-blue"/>
+<img src="https://img.shields.io/badge/status-andamento-green"/>
+<img src="https://img.shields.io/badge/t%C3%B3pico-desafio-blue"/>
 <img src="https://img.shields.io/github/license/alinearaujodev/apc-unb"/>
 </p>
 
